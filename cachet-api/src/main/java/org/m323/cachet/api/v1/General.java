@@ -15,6 +15,7 @@ import org.m323.cachet.api.v1.response.VersionResponse;
  * @author Marczeeee
  */
 @Path("/api/v1")
+@Produces(MediaType.APPLICATION_JSON)
 public interface General {
     /**
      * Simply pings the Cachet server and returns the textual answer of the server.
@@ -23,7 +24,6 @@ public interface General {
      */
     @GET
     @Path("/ping")
-    @Produces(MediaType.APPLICATION_JSON)
     PingResponse ping();
 
     /**
@@ -33,6 +33,5 @@ public interface General {
      */
     @GET
     @Path("/version")
-    @Produces(MediaType.APPLICATION_JSON)
     VersionResponse version();
 }

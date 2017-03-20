@@ -2,6 +2,7 @@ package org.m323.cachet.api.v1.test;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.m323.cachet.api.v1.General;
 import org.m323.cachet.api.v1.response.PingResponse;
@@ -16,9 +17,15 @@ import org.m323.cachet.api.v1.test.util.CXFClientUtil;
  */
 public class TestGeneral {
 
+    private static General general;
+
+    @BeforeClass
+    public static void beforeClass() {
+        general = CXFClientUtil.createJaxRsClient(General.class);
+    }
+
     @Test
     public void testPing() {
-        final General general = CXFClientUtil.createJaxRsClient(General.class);
         final PingResponse pingResponse = general.ping();
         Assert.assertNotNull(pingResponse);
         Assert.assertEquals("Pong!", pingResponse.getData());
@@ -26,7 +33,6 @@ public class TestGeneral {
 
     @Test
     public void testVersion() {
-        final General general = CXFClientUtil.createJaxRsClient(General.class);
         final VersionResponse versionResponse = general.version();
         Assert.assertNotNull(versionResponse);
         Assert.assertNotNull(versionResponse.getData());
