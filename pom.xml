@@ -14,7 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<project.source.version>1.8</project.source.version>
 		<project.target.version>1.8</project.target.version>
-	</properties
+	</properties>
 
 	<build>
 		<plugins>
